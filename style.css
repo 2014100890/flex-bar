@@ -1,0 +1,107 @@
+:root {
+  --background-color: #161616;
+  --accent-color: #ff7600;
+
+  --logo-size: 30px;
+  --base-space: 8px;
+  --icon-size: 20px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 8px 12px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar__logo {
+  font-size: var(--logo-size);
+  padding-left: var(--base-space);
+}
+
+.navbar__logo i {
+  color: var(--accent-color);
+}
+
+.navbar__menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.navbar__menu li {
+  padding: 8px 12px;
+}
+
+.navbar__menu li:hover {
+  border-radius: 4px;
+  background-color: var(--accent-color);
+}
+
+.navbar__links {
+  list-style: none;
+  display: flex;
+  font-size: var(--icon-size);
+  color: white;
+}
+
+.navbar__links li {
+  padding: 8px 12px;
+}
+
+.navbar__links li:hover {
+  color: var(--accent-color);
+}
+
+.navbar__toggleBtn {
+  position: absolute;
+  right: 32px;
+  font-size: var(--icon-size);
+  color: var(--accent-color);
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start; /* 왼쪽 (수평 기준 정렬)  */
+    padding: 8px 24px;
+  }
+
+  .navbar__menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .navbar__menu li {
+    width: 100%;
+    text-align: center; /* 너비가 넓어지면 Text 왼쪽 정렬 됨  */
+  }
+
+  .navbar__links {
+    display: none;
+    /* 방향 바꾸지 않고, 가운데로 정렬만 해주면 됨 */
+    justify-content: center;
+    width: 100%;
+    padding-left: 0;
+  }
+  .navbar__toggleBtn {
+    display: block;
+  }
+  /*toggle이 클릭되었을때 보여주자 */
+  .navbar__menu.active,
+  .navbar__links.active {
+    display: flex;
+  }
+}
